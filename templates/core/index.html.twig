@@ -18,7 +18,16 @@
             <div class="d-flex flex-row flex-wrap">
                 {% for event in events %}
                     <div class="card m-2" style="width: 16rem;">
-                        <img class="card-img-top" src="{{ event.picture }}" alt="{{ event.title }}">
+			{#
+			fct° native asset qui permet
+			l'affichage des images enregistées
+			ds la DB
+			#}
+                        <img class="card-img-top" src="{{
+			asset ('/images/TUX/'~event.picture) }}" alt="{{
+					   event.title
+					   }}">
+
                         <div class="card-body">
                             <h5 class="card-title">{{ event.title }}</h5>
                             <p class="card-text text-muted">

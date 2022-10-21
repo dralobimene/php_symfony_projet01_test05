@@ -1,6 +1,46 @@
 {# templates/event/show.html.twig #}
 {% extends 'base.html.twig' %}
 
+{% block title %} {{ event.title }} | {{ parent() }} {% endblock %}
+
 {% block content %}
-    <h1>Affichage de l'événement {{ event_id }} dans une vue twig.</h1>
+	<div class="hero p-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12
+					    col-lg-6">
+				</div>
+				<div class="col-sm-12
+					    col-lg-6 mt-3">
+					<h2>{{ event.title
+						}}</h2>
+					<p class="card-text
+						  text-muted">
+					Le
+					{{
+					event.eventDate|format_datetime('medium',
+					'short',
+					locale='fr') }}
+					<br>
+					{{ event.address }}
+					</p>
+					<br>
+					<img
+					class="card-img-top"
+					src="{{
+					asset('/images/TUX/'~event.picture)
+					}}" alt="{{
+					    event.title }}">
+					<br>
+					<p class="lead">
+					{{ event.description
+					}}
+					</p>
+					<a href="#"
+						class="btn
+							btn-primary">Réserver</a>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
